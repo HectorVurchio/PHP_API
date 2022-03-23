@@ -1,0 +1,16 @@
+section{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.button-case{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.button-case button{
+    width:300px;
+    height:50px;
+}

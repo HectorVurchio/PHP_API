@@ -1,0 +1,18 @@
+CREATE TABLE `events` (
+	`id` INT NOT NULL,
+	`category` VARCHAR(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+	`title` VARCHAR(40) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+    `description` VARCHAR(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+    `location` VARCHAR(30) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+    `date` DATE NOT NULL DEFAULT '2022-03-15',
+    `time` TIME NOT NULL DEFAULT '00:00:00',
+	`petsAllowed` VARCHAR(6) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'false',
+    `organizer` VARCHAR(40) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+	PRIMARY KEY(`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
+INSERT INTO `events`(`id`,`category`,`title`,`description`,`location`,`date`,`time`,`petsAllowed`,`organizer`)VALUES
+(123,'animal welfare','Cat Adoption Day','Find your new feline friend at this event.','Meow Town','2022-01-13','12:00','true','Kat Laydee'),
+(456,'food','Community Gardening','Join us as we tend to the community edible plants.','Flora City','2022-03-14','10:00','false','Fern Pollin'),
+(789,'sustainability','Beach Cleanup','Help pick up trash along the shore.','Playa Del Carmen','2022-07-22','11:00','true','Carey Wales');

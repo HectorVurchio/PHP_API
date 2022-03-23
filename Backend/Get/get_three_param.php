@@ -37,7 +37,6 @@ if(count($parameters) == count($query_par)){
 		header('Content-Type: application/json');
 		echo json_encode($crud -> getRecordset(),JSON_PRETTY_PRINT);
 		
-		
 		http_response_code(200);
 	}else{
 		print_r (json_encode($crud -> getErrorInfo(),true));

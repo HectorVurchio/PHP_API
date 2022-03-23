@@ -54,5 +54,18 @@ class Crud_PDO{
 			return false;
 		}
 	}
+	
+	public function insertDataOne($query,$arrParam){
+		$pdoStatement = $this->connection->prepare($query);
+		foreach($arrParam as $key => $value){
+			$pdoStatement->bindValue($key,htmlspecialchars(strip_tags($value)),PDO::PARAM_STR);
+		}
+		if($pdoStatement->execute()){  	
+			return true;
+		}else{
+			$this->showError($pdoStatement);
+			return false;
+		}
+	}
 }
 ?>

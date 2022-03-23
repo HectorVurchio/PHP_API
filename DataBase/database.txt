@@ -1,0 +1,4 @@
+CREATE DATABASE first_vue_db;
+
+use first_vue_db;
+

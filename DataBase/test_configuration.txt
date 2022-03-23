@@ -1,0 +1,17 @@
+CREATE TABLE `test_configuration` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `prefix` VARCHAR(4) NOT NULL,
+  `machine_name` VARCHAR(20) NOT NULL,
+  `test_number` VARCHAR(10) NOT NULL,
+  `start_phase` VARCHAR(10) NOT NULL,
+  `end_phase` VARCHAR(10) NOT NULL,
+  `start_stroke` VARCHAR(10) NOT NULL,
+  `end_stroke` VARCHAR(10) NOT NULL,
+  `bioethanol` DOUBLE NOT NULL,
+  `note` TINYTEXT NOT NULL,
+  `file_one_name` VARCHAR(30) NOT NULL,
+  `file_two_name` VARCHAR(30) NOT NULL,
+  `file_three_name` VARCHAR(30) NOT NULL,
+  `date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=UTF8MB4;

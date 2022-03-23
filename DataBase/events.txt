@@ -1,0 +1,15 @@
+mysql> describe events;
++-------------+--------------+------+-----+------------+-------+
+| Field       | Type         | Null | Key | Default    | Extra |
++-------------+--------------+------+-----+------------+-------+
+| id          | int(11)      | NO   | PRI | NULL       |       |
+| category    | varchar(100) | NO   |     |            |       |
+| title       | varchar(40)  | NO   |     |            |       |
+| description | varchar(100) | NO   |     |            |       |
+| location    | varchar(30)  | NO   |     |            |       |
+| date        | date         | NO   |     | 2022-03-15 |       |
+| time        | time         | NO   |     | 00:00:00   |       |
+| petsAllowed | varchar(6)   | NO   |     | false      |       |
+| organizer   | varchar(40)  | NO   |     |            |       |
++-------------+--------------+------+-----+------------+-------+
+9 rows in set (0.00 sec)

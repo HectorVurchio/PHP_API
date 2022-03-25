@@ -5,7 +5,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/Backend/DBManage/Crud_PDO.php';
 
 
 	$id = $path_arr[2];
-	$MYSQL_query = "SELECT * FROM events WHERE id= ? LIMIT 1";
+	$MYSQL_query = "SELECT * FROM $param[1] WHERE id= ? LIMIT 1";
 	$arr_par = [1 => $id];
 	$config = new Config();
 	$c = $config -> getVariables();

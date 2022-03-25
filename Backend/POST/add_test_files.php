@@ -4,19 +4,19 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/Backend/DBManage/Database_PDO.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/Backend/DBManage/Crud_PDO.php';
 if($flag){
 /*********************************************************************************************/	
-    $MYSQL_query = "INSERT INTO test_configuration SET 
-												prefix = :pre, 
-												machine_name  = :man, 
-												test_number  = :ten, 
-												start_phase  = :stp, 
-												end_phase  = :enp, 
-												start_stroke  = :est, 
-												end_stroke  = :ens,
-												bioethanol = :bio,
-												note = :not,
-												file_one_name = :fon,
-												file_two_name = :ftw,
-												file_three_name = :ftr";
+    $MYSQL_query = "INSERT INTO upload SET 
+											prefix = :pre, 
+											machine_name  = :man, 
+											test_number  = :ten, 
+											start_phase  = :stp, 
+											end_phase  = :enp, 
+											start_stroke  = :est, 
+											end_stroke  = :ens,
+											bioethanol = :bio,
+											note = :not,
+											file_one_name = :fon,
+											file_two_name = :ftw,
+											file_three_name = :ftr";
 
     $arr_par=[":pre"=>$fields->{"prefix"},
 			   ":man"=>$fields->{"macnam"},

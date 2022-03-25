@@ -19,7 +19,8 @@ if(count($parameters) == count($query_par)){
 		$c++;
 	}
 /*********************************************************************************************/	
-	$MYSQL_query = "SELECT * FROM events LIMIT ? OFFSET ?";
+    $MYSQL_query_one = "SELECT * FROM $path_arr[1]";
+	$MYSQL_query_two = "SELECT * FROM $path_arr[1] LIMIT ? OFFSET ?";
 	//two parameters pagination
 	if(isset($vals[1])){
 		$arr_par = ['1' => $vals[0],'2'=>intval($vals[0])*intval($vals[1])- intval($vals[0])];
@@ -32,10 +33,19 @@ if(count($parameters) == count($query_par)){
 	$database = new Database_PDO($c[0],$c[1],$c[2],$c[3]);
 	$db = $database->getConnection();
 	$crud = new Crud_PDO($db);
-	if($crud -> singleReadAll($MYSQL_query,$arr_par)){
+	$second_query = false;
+	$number_of_items = 0;
+	
+	if($crud -> singleRead($MYSQL_query_one)){
+		$number_of_items = $crud -> getRecordsNumber();
+		$second_query = true;
+	}
+
+	if($crud -> singleReadAll($MYSQL_query_two,$arr_par) && $second_query){
 		
 		header('Content-Type: application/json');
-		echo json_encode($crud -> getRecordset(),JSON_PRETTY_PRINT);
+		echo json_encode(array("RecSet"=>$crud -> getRecordset(),
+		                       "NumSet"=>$number_of_items),JSON_PRETTY_PRINT);
 		
 		http_response_code(200);
 	}else{

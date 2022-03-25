@@ -25,6 +25,18 @@ class Crud_PDO{
 		return $this -> errorInfo;
 	}
 	
+	public function singleRead($query){
+		$pdoStatement = $this->connection->prepare($query,array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+		if($pdoStatement->execute()){
+			$this->recordsNumber = $pdoStatement->rowCount();
+			$this->recordset = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
+			return true;
+		}else{
+			$this->showError($pdoStatement);
+			return false;
+		}
+	}
+	
 	public function singleReadAll($query, $param){
 		$pdoStatement = $this->connection->prepare($query,array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
 			foreach($param as $key=>$value){

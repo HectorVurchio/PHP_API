@@ -5,13 +5,10 @@ header("Access-Control-Allow-Headers: X-Requested-With");
 header('Access-Control-Max-Age: 1000');
 header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token , Authorization');
 header('Content-Type: application/json; charset=utf-8');
-
 header('Access-Control-Expose-Headers: *');
-
-
 header("Cache-Control: no-cache, must-revalidate"); //HTTP 1.1
-  header("Pragma: no-cache"); //HTTP 1.0
-  header("Expires: -1"); // Date in the past
+header("Pragma: no-cache"); //HTTP 1.0
+header("Expires: -1"); // Date in the past
 
 require_once 'Request.php';
 require_once 'Router.php';

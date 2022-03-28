@@ -38,16 +38,20 @@ if($flag){
 	$db = $database->getConnection();
 	$crud = new Crud_PDO($db);
 	if($crud -> insertDataOne($MYSQL_query,$arr_par)){
-		echo "Data Successfully Logged \n";
-		http_response_code(200);
+		//echo "Data Successfully Logged \n";
+		//http_response_code(200);
+		$flag = true;
 	}else{
 		$flag = false;
-		print_r (json_encode($crud -> getErrorInfo(),true));
-		http_response_code(400);
+		//print_r (json_encode($crud -> getErrorInfo(),true));
+		echo "Data Faliled to be Logged \n";
+		http_response_code(404);
 	}
 }else{
 	//Header('HTTP/1.1 404 Not Found');
 	$flag = false;
+	echo "Data Faliled to be Logged \n";
+	http_response_code(404);
 }
 
 

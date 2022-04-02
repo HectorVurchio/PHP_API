@@ -3,8 +3,10 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/Backend/DBManage/Config.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/Backend/DBManage/Database_PDO.php';
 require_once $_SERVER['DOCUMENT_ROOT'].'/Backend/DBManage/Crud_PDO.php';
 
-
-	$id = $path_arr[2];
+$id = $path_arr[2];
+if(isset($path_arr[1]) && $path_arr[1]=="excel-files"){
+	require_once $_SERVER['DOCUMENT_ROOT']."/Backend/file_retrieve.php";
+}else{
 	$MYSQL_query = "SELECT * FROM $param[1] WHERE id= ? LIMIT 1";
 	$arr_par = [1 => $id];
 	$config = new Config();
@@ -19,9 +21,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/Backend/DBManage/Crud_PDO.php';
 		echo json_encode($crud -> getErrorInfo()());
 		http_response_code(400);
 	}
-	
-
-	
+}
 
 	
 ?>

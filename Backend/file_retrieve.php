@@ -1,6 +1,6 @@
 <?php
 // PhpSpreadSheet Library
-require $_SERVER["DOCUMENT_ROOT"]."/phpspreadsheet/vendor/autoload.php";
+require $_SERVER["DOCUMENT_ROOT"]."/libraries/phpspreadsheet/vendor/autoload.php";
 use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
 	$flag = true;
 	$message = "";
